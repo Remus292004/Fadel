@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Principale avec Boutons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .sidebar {
+            width: 20%;
+            background-color: #34495e;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .button {
+            background-color: #3498db;
+            border: none;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            margin: 8px 0;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            background-color: #f4f4f9;
+        }
+        .page-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .submit-button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #2980b9;
+        }
+        h1, h2 {
+            color: #34495e;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <script>
+        function loadContent(pageId) {
+            var contents = document.querySelectorAll('.page-content');
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2 style="color: white; text-align: center; margin-bottom: 20px;">Navigation</h2>
+        <div class="button-container">
+            <button class="button" onclick="loadContent('content1')">Page 1</button>
+            <button class="button" onclick="loadContent('content2')">Page 2</button>
+            <button class="button" onclick="loadContent('content3')">Page 3</button>
+            <button class="button" onclick="loadContent('content4')">Page 4</button>
+            <button class="button" onclick="loadContent('content5')">Page 5</button>
+            <button class="button" onclick="loadContent('content6')">Page 6</button>
+            <button class="button" onclick="loadContent('content7')">Page 7</button>
+        </div>
+    </div>
+    <div class="content">
+        <!-- Page 1 -->
+        <div id="content1" class="page-content active">
+            <h1>Bienvenue sur la Page Principale</h1>
+            <p>Découvrez l'école Pigier, une institution renommée dans la formation aux métiers du tertiaire...</p>
+            <h2>Pourquoi choisir Pigier ?</h2>
+            <p>Pigier offre des programmes variés...</p>
+        </div>
+        
+        <!-- Page 2 -->
+        <div id="content2" class="page-content">
+            <h1>État Civil</h1>
+            <p><strong>Nom :</strong> FAROUGOU</p>
+            <p><strong>Prénom :</strong> Fadel</p>
+            <p><strong>Âge :</strong> 19 ans</p>
+            <p><strong>Contact :</strong> 64824562</p>
+            <p><strong>Filière :</strong> RGL2</p>
+            <div class="photo">
+                <h2>Photo de Fadel FAROUGOU</h2>
+                <img src="Fadel.jpg" alt="Photo de Fadel FAROUGOU">
+            </div>
+        </div>
+        
+        <!-- Page 3 -->
+        <div id="content3" class="page-content">
+            <h1>Description de l'École PIGIER</h1>
+            <p>Fondée il y a plus de 170 ans...</p>
+            <h2>Diplômes Offerts</h2>
+            <ul>
+                <li>LICENCE PROFESSIONNELLE AUDIT ET CONTRÔLE DE GESTION</li>
+                <li>LICENCE PROFESSIONNELLE COMPTABILITÉ FINANCE</li>
+                <li>LICENCE PROFESSIONNELLE RÉSEAUX GÉNIE LOGICIEL</li>
+            </ul>
+            <div class="photo">
+                <h2>Photo de l'École PIGIER</h2>
+                <img src="LOGO.jpg" alt="Photo de l'école PIGIER">
+            </div>
+        </div>
+        
+        <!-- Page 4 -->
+        <div id="content4" class="page-content">
+            <h1>Listes Ordonnées et Non Ordonnées</h1>
+            <h2>Liste Ordonnée des Diplômes</h2>
+            <ol>
+                <li>LICENCE PROFESSIONNELLE AUDIT ET CONTRÔLE DE GESTION</li>
+                <li>LICENCE PROFESSIONNELLE COMPTABILITÉ FINANCE</li>
+            </ol>
+            <h2>Liste Non Ordonnée des Domaines d'Étude</h2>
+            <ul>
+                <li>Gestion</li>
+                <li>Commerce</li>
+                <li>Marketing</li>
+            </ul>
+        </div>
+        
+        <!-- Page 5 -->
+        <div id="content5" class="page-content">
+            <h1>Informations Personnelles</h1>
+            <div class="info-group">
+                <label>Nom :</label>
+                <p>FAROUGOU</p>
+            </div>
+            <div class="info-group">
+                <label>Prénom :</label>
+                <p>Fadel</p>
+            </div>
+            <div class="info-group">
+                <label>Contact :</label>
+                <p>64824562</p>
+            </div>
+        </div>
+        
+        <!-- Page 6: Formulaire complet -->
+        <div id="content6" class="page-content">
+            <h1>Formulaire d'Informations</h1>
+            <form>
+                <div class="form-group">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Téléphone :</label>
+                    <input type="tel" id="telephone" name="telephone">
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse :</label>
+                    <input type="text" id="adresse" name="adresse">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="submit-button">Envoyer</button>
+            </form>
+        </div>
+        
+        <!-- Page 7: Profil de CV complet -->
+        <div id="content7" class="page-content">
+            <h1>Profil de CV</h1>
+            <h2>Informations Personnelles</h2>
+            <p><strong>Nom :</strong> FAROUGOU</p>
+            <p><strong>Prénom :</strong> Fadel</p>
+            <p><strong>Âge :</strong> 19 ans</p>
+            <p><strong>Contact :</strong> 64824562</p>
+            <p><strong>Lieu de Résidence :</strong> Cotonou, Bénin</p>
+
+            <h2>Diplômes</h2>
+            <ul>
+                <li>Baccalauréat Série D</li>
+                <li>Licence en Réseaux et Génie Logiciel (RGL2)</li>
+            </ul>
+
+            <h2>Expérience Professionnelle</h2>
+            <ul>
+                <li>Stage en développement web chez [Nom de l'entreprise]</li>
+                <li>Projet personnel : Application de gestion des tâches</li>
+            </ul>
+
+            <h2>Compétences</h2>
+            <ul>
+                <li>Langages de Programmation : HTML, CSS, JavaScript</li>
+                <li>Frameworks : React, Vue.js</li>
+                <li>Base de Données : MySQL, MongoDB</li>
+                <li>Outils : Git, Docker</li>
+            </ul>
+
+            <h2>Langues</h2>
+            <p>Français (courant), Anglais (intermédiaire)</p>
+        </div>
+    </div>
+</body>
+</html>
